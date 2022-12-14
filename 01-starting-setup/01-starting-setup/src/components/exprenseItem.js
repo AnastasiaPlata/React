@@ -1,19 +1,12 @@
 import "./exprenseItem.css";
-
+import exprenseDate from './components/exprenseDate';
+// από αυτή την function παίρνω την μορφή που θα έχει 
+// το κάθε κουτάκι και δηλώνω μεταβλητές όπου οι τιμές τους αναφέρονται
+// στο αρχείο app.js
 function ExpenseItem (props){
-    const options={
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric'
-    };
-    const date = new Date().toLocaleString('en',options)
-
+    
     return  <div className="expense-item ">
-       <div>{date}</div>
-        <div> 
-        <div><h2>{props.date}</h2></div>
-        </div>
+        <exprenseDate date={props.date}/>
         <div className="expense-item__description">
             <p><strong>{props.title}</strong></p>
             <div className="expense-item__price ">${props.amount}</div>
